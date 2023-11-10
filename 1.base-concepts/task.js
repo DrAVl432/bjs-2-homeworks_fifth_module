@@ -19,11 +19,13 @@ let d = b ** 2 - 4 * a * c;
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   let credit;
   let payment;
+  let amountOfCredit;
    if (percent<0) {
     return false
   }
   percent = percent/100/12
 credit=amount-contribution
 payment=credit * (percent + (percent / (((1 + percent) ** countMonths) -1)))
-return parseFloat (payment.toFixed(2));
+amountOfCredit = payment * countMonths
+return parseFloat (amountOfCredit.toFixed(2));
 }
