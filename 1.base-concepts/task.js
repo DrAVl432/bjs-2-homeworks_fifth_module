@@ -13,8 +13,17 @@ let d = b ** 2 - 4 * a * c;
     arr.push(x1);
   }
   return arr;
+
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  
+  let credit;
+  let payment;
+   if (percent<0) {
+    return false
+  }
+  percent = percent/100/12
+credit=amount-contribution
+payment=credit * (percent + (percent / (((1 + percent) ** countMonths) -1)))
+return parseFloat (payment.toFixed(2));
 }
