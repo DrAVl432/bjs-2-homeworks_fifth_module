@@ -1,3 +1,4 @@
+//const arr = [[10, 10, 11, 20, 10], [67, 10, 2, 39, 88], [72, 75, 51, 87, 43], [30, 41, 55, 96, 62]];
 function getArrayParams(...arr) {
 	if (arr.length === 0) {
 		return {
@@ -83,4 +84,19 @@ function averageEvenElementsWorker(...arr) {
 	return avg;
 }
 
-function makeWork(arrOfArr, func) { }
+function makeWork(arrOfArr, func) {
+	let maxWorkerResult = -Infinity;
+	for (let i = 0; i < arrOfArr.length; i++) {
+		const result = func(...arrOfArr[i]);
+		console.log(result);
+		if (result > maxWorkerResult) {
+			maxWorkerResult = result;
+		}
+	}
+	return maxWorkerResult
+}
+
+makeWork(arr, summElementsWorker);
+makeWork(arr, differenceMaxMinWorker);
+makeWork(arr, differenceEvenOddWorker);
+makeWork(arr, averageEvenElementsWorker);
